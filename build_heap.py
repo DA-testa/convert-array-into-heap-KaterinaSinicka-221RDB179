@@ -30,16 +30,16 @@ def main():
     # first two tests are from keyboard, third test is from a file
     # input from keyboard
     text = input("choose 'I' for input or 'F' for file")
+    if "I" in text:
+        n = int(input())
+        data = list(map(int, input().split()))
     if "F" in text:
         f_name = input("Enter file name: ")
         if "a" not in f_name:
             path = './test/' + f_name
             with open(path, 'r', encoding = 'utf-8') as file:
-                n = int(file.readLine())
-                data = list(map(int, file.readLine().split()))
-    if "I" in text:
-        n = int(input())
-        data = list(map(int, input().split()))
+                n = int(file.readline())
+                data = list(map(int, file.readline().split()))
     # checks if lenght of data is the same as the said lenght
     assert data is not None and len(data) == n
     # calls function to assess the data 
